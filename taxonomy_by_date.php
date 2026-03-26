@@ -96,14 +96,17 @@ class Posts_By_Date {
                 $image   = get_the_post_thumbnail_url(get_the_ID(), 'medium');
                 $excerpt = get_the_excerpt();
                 $link    = get_permalink();
+                $slug    = get_post_field('post_name', get_the_ID());
     
                 ?>
                 <div 
                     class="post-card"
                     data-title="<?php echo esc_attr($title); ?>"
-                    data-image="<?php echo esc_url($image); ?>"
+                    data-thumbnail="<?php echo esc_url($image); ?>"
                     data-excerpt="<?php echo esc_attr($excerpt); ?>"
                     data-link="<?php echo esc_url($link); ?>"
+                    data-date="<?php echo esc_attr($date); ?>"
+                    data-slug="<?php echo esc_attr($slug); ?>"
                 >
     
                     <?php if ($image): ?>
@@ -120,6 +123,23 @@ class Posts_By_Date {
             }
     
             echo '</div>';
+
+            ?>
+            <div class="post-modal" data-post-modal hidden>
+                <div class="post-modal__overlay" data-post-modal-close></div>
+                <div class="post-modal__dialog" role="dialog" aria-modal="true" aria-label="Post details">
+                    <button type="button" class="post-modal__close" data-post-modal-close aria-label="Close">x</button>
+                    <img class="post-modal__thumbnail" data-post-modal-thumbnail src="" alt="">
+                    <div class="post-modal__meta">
+                        <p class="post-modal__date" data-post-modal-date></p>
+                        <p class="post-modal__slug" data-post-modal-slug></p>
+                    </div>
+                    <h3 class="post-modal__title" data-post-modal-title></h3>
+                    <p class="post-modal__excerpt" data-post-modal-excerpt></p>
+                    <a class="post-modal__link" data-post-modal-link href="#" target="_blank" rel="noopener noreferrer"><?php echo esc_attr($title); ?></a>
+                </div>
+            </div>
+            <?php
 
         } else {
             echo '<p class="taxonomy-by-date-empty">No available posts</p>';
