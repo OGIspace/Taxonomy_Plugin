@@ -63,3 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+const test = () => {
+    console.log("Test");
+    const wrappers = document.querySelectorAll(".posts-by-date");
+    wrappers.forEach((wrapper) => {
+        const modal = wrapper.querySelector("[data-post-modal]");
+        if (!modal) {
+            return;
+        }
+    });
+}
+
+test();
