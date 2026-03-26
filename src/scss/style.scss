@@ -1,0 +1,16 @@
+.posts-by-date {
+    padding: 10px;
+  }
+.posts-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+    .post-card{
+        padding: 10px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+}
