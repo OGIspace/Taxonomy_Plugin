@@ -5,9 +5,7 @@
  */
 
 if (!defined('ABSPATH')) exit;
-
 class Posts_By_Date {
-
     public function __construct() {
         add_shortcode('taxonomy_by_date', [$this, 'render_shortcode']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
@@ -90,14 +88,12 @@ class Posts_By_Date {
     
             while ($query->have_posts()) {
                 $query->the_post();
-    
                 $title   = get_the_title();
                 $date    = get_the_date('d.m.Y');
                 $image   = get_the_post_thumbnail_url(get_the_ID(), 'medium');
                 $excerpt = get_the_excerpt();
                 $link    = get_permalink();
                 $slug    = get_post_field('post_name', get_the_ID());
-    
                 ?>
                 <div 
                     class="post-card"
@@ -117,13 +113,10 @@ class Posts_By_Date {
                         <span class="date"><?php echo esc_html($date); ?></span>
                         <h3><?php echo esc_html($title); ?></h3>
                     </div>
-    
                 </div>
                 <?php
             }
-    
             echo '</div>';
-
             ?>
             <div class="post-modal" data-post-modal hidden>
                 <div class="post-modal__overlay" data-post-modal-close></div>
