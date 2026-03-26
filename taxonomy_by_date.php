@@ -129,7 +129,7 @@ class Posts_By_Date {
                     </div>
                     <h3 class="post-modal__title" data-post-modal-title></h3>
                     <p class="post-modal__excerpt" data-post-modal-excerpt></p>
-                    <a class="post-modal__link" data-post-modal-link href="#" target="_blank" rel="noopener noreferrer"><?php echo esc_attr($title); ?></a>
+                    <a class="post-modal__link" data-post-modal-link href="#" target="_blank" rel="noopener noreferrer">Read me more</a>
                 </div>
             </div>
             <?php
